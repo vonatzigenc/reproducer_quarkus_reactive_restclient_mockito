@@ -9,7 +9,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 @Order(100)
-class IndirectGreetingResourceTest {
+class TestWithoutMockAfterUsingInjectMock {
 
     @Test
     public void testHelloEndpoint() {
