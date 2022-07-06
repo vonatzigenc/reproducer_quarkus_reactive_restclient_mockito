@@ -13,5 +13,5 @@ public interface GreetingRestClient {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello();
+    String hello();
 }
