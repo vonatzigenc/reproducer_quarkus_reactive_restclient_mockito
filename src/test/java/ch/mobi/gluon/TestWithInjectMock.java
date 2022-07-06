@@ -13,7 +13,7 @@ import static org.mockito.Mockito.when;
 
 @QuarkusTest
 @Order(10)
-//@TestProfile(DummyProfile.class) //Workaround to force separate inits of quarkus for the tests
+//@TestProfile(TestWithInjectMock.DummyProfile.class) //Workaround to force separate inits of quarkus for the tests
 class TestWithInjectMock {
 
     @InjectMock
@@ -33,7 +33,7 @@ class TestWithInjectMock {
     }
 
     //Using a separate TestProfile for Mockito-Test
-    public class DummyProfile implements QuarkusTestProfile {
+    public static class DummyProfile implements QuarkusTestProfile {
     }
 
 
