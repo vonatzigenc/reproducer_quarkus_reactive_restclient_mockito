@@ -1,6 +1,8 @@
 package ch.mobi.gluon;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.junit.QuarkusTestProfile;
+import io.quarkus.test.junit.TestProfile;
 import io.quarkus.test.junit.mockito.InjectMock;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.Order;
@@ -12,6 +14,7 @@ import static org.mockito.Mockito.when;
 
 @QuarkusTest
 @Order(1)
+//@TestProfile(DummyProfile.class) //Workaround to force separate inits of quarkus for the tests
 class IndirectGreetingResourceWithMockTest {
 
     @InjectMock
@@ -29,5 +32,10 @@ class IndirectGreetingResourceWithMockTest {
                 .statusCode(200)
                 .body(is(mockHello + " (Indirect)"));
     }
+
+    //Using a separate TestProfile for Mockito-Test
+    public class DummyProfile implements QuarkusTestProfile {
+    }
+
 
 }

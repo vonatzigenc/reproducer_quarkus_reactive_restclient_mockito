@@ -13,7 +13,7 @@ class IndirectGreetingResourceTest {
 
     @Test
     public void testHelloEndpoint() {
-        //this test will fail if AAA_Runfirst_IndirectGreetingResourceWithMockTest was executed first
+        //this test will fail if IndirectGreetingResourceWithMockTest was executed first
         given()
                 .when().get("/indirect/hello")
                 .then()
